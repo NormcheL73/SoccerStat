@@ -1,13 +1,18 @@
 import "./App.css"
-import Button from "@mui/material/Button"
-import ezhik from "./images/ezhik.jpg"
+import { Route, Routes } from "react-router-dom"
+import Navbar from "./components/Navbar/Navbar"
+import Leagues from "./pages/Leagues/Leagues"
+import Teams from "./pages/Teams/Teams"
 
 function App() {
   return (
     <div className="App">
-      <h1>ХаюхайТест</h1>
-      <img src={ezhik} alt="Картинка ёжика" />
-      <Button variant="outlined">Test mui</Button>
+      <Navbar />
+      <Routes>
+        <Route path="/SoccerStat" element={<Leagues />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="*" element={<Leagues />} />
+      </Routes>
     </div>
   )
 }
