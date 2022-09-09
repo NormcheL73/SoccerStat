@@ -1,6 +1,6 @@
 import "./App.css"
 import { Route, Routes } from "react-router-dom"
-import { Box } from "@mui/system"
+import { Box, Container } from "@mui/system"
 import Navbar from "./components/Navbar/Navbar"
 import Leagues from "./pages/Leagues/Leagues"
 import Teams from "./pages/Teams/Teams"
@@ -12,12 +12,14 @@ function App() {
     <div className="App">
       <Navbar />
       <Box display="flex" flexDirection="column" padding="1rem">
-        <Search />
-        <Routes>
-          <Route path="/SoccerStat" element={<Leagues />} />
-          <Route path="/teams" element={<Teams />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
+        <Container>
+          <Search />
+          <Routes>
+            <Route path="/SoccerStat" element={<Leagues />} />
+            <Route path="/teams" element={<Teams />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </Container>
       </Box>
     </div>
   )

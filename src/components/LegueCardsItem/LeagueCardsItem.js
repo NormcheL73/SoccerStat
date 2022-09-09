@@ -1,4 +1,6 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material"
+import { Link } from "react-router-dom"
+import footballImage from "../../images/футбольчик.jpg"
 
 function LeagueCardsItem() {
   return (
@@ -7,7 +9,7 @@ function LeagueCardsItem() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={footballImage}
           alt="green iguana"
         />
         <CardContent>
@@ -20,6 +22,7 @@ function LeagueCardsItem() {
           </Typography>
         </CardContent>
       </Card>
+      <Link to="/teams" />
     </Grid>
   )
 }
