@@ -1,24 +1,37 @@
 import "./App.css"
-import { Route, Routes } from "react-router-dom"
+// import { useEffect } from "react"
 import { Box, Container } from "@mui/system"
-import Navbar from "./components/Navbar/Navbar"
-import Leagues from "./pages/Leagues/Leagues"
-import Teams from "./pages/Teams/Teams"
-import Search from "./components/Search/Search"
-import Error404 from "./components/Error404/Error404"
+import Navbar from "./components/Navbar"
+import SearchField from "./components/SearchField"
+import Routing from "./components/Routing"
+// import { getData } from "./api/fetch"
 
 function App() {
+  // const [competitionsName, setCompetitions] = useState("")
+
+  // const url = "https://api.github.com"
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch(url)
+
+  //     if (response.ok) {
+  //       const json = await response.json()
+  //       console.log("🚀 ~ file: App.js ~ line 19 ~ fetchData ~ json", json)
+  //     } else {
+  //       console.error("Что-то не так")
+  //     }
+  //   }
+  //   fetchData()
+  // }, [])
+
   return (
     <div className="App">
       <Navbar />
       <Box display="flex" flexDirection="column" padding="1rem">
         <Container>
-          <Search />
-          <Routes>
-            <Route path="/SoccerStat" element={<Leagues />} />
-            <Route path="/teams" element={<Teams />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
+          <SearchField />
+          <Routing />
         </Container>
       </Box>
     </div>

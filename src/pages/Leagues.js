@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import LeagueCardsItem from "../../components/LegueCardsItem/LeagueCardsItem"
+import LeagueCardsItem from "../components/LeagueCardsItem"
 
 function Leagues() {
   return (

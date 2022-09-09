@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function Navbar() {
-  const [value, setValue] = useState(1)
+  const [value, setValue] = useState(0)
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
