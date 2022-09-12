@@ -15,6 +15,7 @@ function Navbar() {
         onChange={handleChange}
         textColor="inherit"
         TabIndicatorProps={{ sx: { bgcolor: "white" } }}
+        sx={{ ml: "1rem" }} // подогнать
       >
         <Tab label="Лиги" to="/SoccerStat" component={Link} />
         <Tab label="Команды" to="/teams" component={Link} />

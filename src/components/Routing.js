@@ -3,11 +3,11 @@ import Leagues from "../pages/Leagues"
 import Teams from "../pages/Teams"
 import Error404 from "./Error404"
 
-function Routing({ leagues }) {
+function Routing({ leagues, teams }) {
   return (
     <Routes>
       <Route path="/SoccerStat" element={<Leagues leagues={leagues} />} />
-      <Route path="/teams" element={<Teams />} />
+      <Route path="/teams" element={<Teams teams={teams} />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
   )

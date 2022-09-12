@@ -1,33 +1,43 @@
 import "./App.css"
 import { useEffect, useState } from "react"
-import { Box, Container } from "@mui/system"
+import { Box } from "@mui/system"
 import Navbar from "./components/Navbar"
 import SearchField from "./components/SearchField"
 import Routing from "./components/Routing"
-import { getLeagues } from "./api/fetch"
+import { getLeagues, getTeams } from "./api/fetch"
 
 function App() {
   const [leagues, setLeagues] = useState([])
+  const [teams, setTeams] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
-      const json = await getLeagues()
+    const fetchDataLeagues = async () => {
+      const jsonLeagues = await getLeagues()
 
-      if (!json) return
-      console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", json)
-      setLeagues(json.competitions)
+      if (!jsonLeagues) return
+      console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", jsonLeagues)
+      setLeagues(jsonLeagues.competitions)
     }
-    fetchData()
+    fetchDataLeagues()
+  }, [])
+
+  useEffect(() => {
+    const fetchDataTeams = async () => {
+      const jsonTeams = await getTeams()
+
+      if (!jsonTeams) return
+      console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", jsonTeams)
+      setTeams(jsonTeams.teams)
+    }
+    fetchDataTeams()
   }, [])
 
   return (
     <div className="App">
       <Navbar />
-      <Box display="flex" flexDirection="column" padding="1rem">
-        <Container>
-          <SearchField />
-          <Routing leagues={leagues} />
-        </Container>
+      <Box padding="1rem">
+        <SearchField />
+        <Routing leagues={leagues} teams={teams} />
       </Box>
     </div>
   )
