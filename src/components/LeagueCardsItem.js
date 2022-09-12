@@ -14,7 +14,7 @@ function LeagueCardsItem({ name, country, areaFlag }) {
   if (!areaFlag) areaFlag = noImage
   return (
     <Grid item xs={12} sm={6} md={3}>
-      <Card>
+      <Card sx={{ height: "100%" }}>
         <CardActionArea component={Link} to="/teams">
           <CardMedia
             component="img"

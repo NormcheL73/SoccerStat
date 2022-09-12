@@ -14,10 +14,15 @@ function TeamCardsItem({ name, teamFlag }) {
   if (!teamFlag) teamFlag = noImage
   return (
     <Grid item xs={12} sm={6} md={2}>
-      <Card>
+      <Card sx={{ height: "100%" }}>
         <CardActionArea component={Link} to="/teams">
           <CardContent>
-            <Typography align="center" variant="h6" component="div">
+            <Typography
+              align="center"
+              variant="body1"
+              component="div"
+              sx={{ fontWeight: "bold" }}
+            >
               {name}
             </Typography>
           </CardContent>
