@@ -1,11 +1,14 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-else-return */
-// const API_KEY = "31ecc933a000480b84bc05f930ac794a"
 
-const urlCompetitions = "http://api.football-data.org/v4/competitions/"
+const urlCompetitions = "http://api.football-data.org/v2/competitions/"
 
-export const getData = async () => {
-  const response = await fetch(urlCompetitions)
+export const getLeagues = async () => {
+  const response = await fetch(urlCompetitions, {
+    headers: {
+      "x-auth-token": process.env.REACT_APP_API_KEY
+    }
+  })
 
   if (response.ok) {
     const json = await response.json()

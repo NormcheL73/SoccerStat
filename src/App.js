@@ -1,29 +1,24 @@
 import "./App.css"
-// import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Box, Container } from "@mui/system"
 import Navbar from "./components/Navbar"
 import SearchField from "./components/SearchField"
 import Routing from "./components/Routing"
-// import { getData } from "./api/fetch"
+import { getLeagues } from "./api/fetch"
 
 function App() {
-  // const [competitionsName, setCompetitions] = useState("")
+  const [leagues, setLeagues] = useState([])
 
-  // const url = "https://api.github.com"
+  useEffect(() => {
+    const fetchData = async () => {
+      const json = await getLeagues()
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch(url)
-
-  //     if (response.ok) {
-  //       const json = await response.json()
-  //       console.log("🚀 ~ file: App.js ~ line 19 ~ fetchData ~ json", json)
-  //     } else {
-  //       console.error("Что-то не так")
-  //     }
-  //   }
-  //   fetchData()
-  // }, [])
+      if (!json) return
+      console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", json)
+      setLeagues(json.competitions)
+    }
+    fetchData()
+  }, [])
 
   return (
     <div className="App">
@@ -31,7 +26,7 @@ function App() {
       <Box display="flex" flexDirection="column" padding="1rem">
         <Container>
           <SearchField />
-          <Routing />
+          <Routing leagues={leagues} />
         </Container>
       </Box>
     </div>

@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom"
 import footballImage from "../images/футбольчик.jpg"
 
-function LeagueCardsItem() {
+function LeagueCardsItem({ name, country }) {
   return (
     <Grid item>
       <Card sx={{ maxWidth: 345 }}>
@@ -23,11 +23,10 @@ function LeagueCardsItem() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+              {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {country}
             </Typography>
           </CardContent>
         </CardActionArea>
