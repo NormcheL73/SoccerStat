@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom"
-import Leagues from "../pages/Leagues"
 import Teams from "../pages/Teams"
 import Error404 from "./Error404"
+import LeaguesPaginated from "../pages/LeaguesPaginated"
 
 function Routing({ leagues, teams }) {
   return (
     <Routes>
-      <Route path="/SoccerStat" element={<Leagues leagues={leagues} />} />
+      <Route
+        path="/SoccerStat"
+        element={<LeaguesPaginated leagues={leagues} />}
+      />
       <Route path="/teams" element={<Teams teams={teams} />} />
       <Route path="*" element={<Error404 />} />
     </Routes>

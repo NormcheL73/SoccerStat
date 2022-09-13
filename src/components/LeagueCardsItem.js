@@ -6,19 +6,19 @@ import {
   Grid,
   Typography
 } from "@mui/material"
-import { Link } from "react-router-dom"
 import noImage from "../images/noimage.png"
 
 function LeagueCardsItem({ name, country, areaFlag }) {
   // eslint-disable-next-line no-param-reassign
   if (!areaFlag) areaFlag = noImage
+
   return (
     <Grid item xs={12} sm={6} md={3}>
       <Card sx={{ height: "100%" }}>
-        <CardActionArea component={Link} to="/teams">
+        <CardActionArea>
           <CardMedia
             component="img"
-            height="150"
+            height="135"
             image={areaFlag}
             alt="League flag"
           />

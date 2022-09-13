@@ -2,7 +2,7 @@ import { Grid } from "@mui/material"
 import TeamCardsItem from "../components/TeamCardsItem"
 
 function Teams({ teams }) {
-  if (!teams) return null
+  if (!teams.length) return null
 
   return (
     <Grid container spacing={4} justifyContent="center">

@@ -1,12 +1,12 @@
 import { Grid } from "@mui/material"
-import LeagueCardsItem from "../components/LeagueCardsItem"
+import LeagueCardsItem from "./LeagueCardsItem"
 
-function Leagues({ leagues }) {
-  if (!leagues) return null
+function LeaguesList({ paginatedLeagues }) {
+  if (!paginatedLeagues.length) return null
 
   return (
     <Grid container spacing={4} justifyContent="center">
-      {leagues.map((league) => (
+      {paginatedLeagues.map((league) => (
         <LeagueCardsItem
           key={league.id}
           name={league.name}
@@ -18,4 +18,4 @@ function Leagues({ leagues }) {
   )
 }
 
-export default Leagues
+export default LeaguesList

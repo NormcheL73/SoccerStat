@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar"
 import SearchField from "./components/SearchField"
 import Routing from "./components/Routing"
 import { getLeagues, getTeams } from "./api/fetch"
-import PaginationControlled from "./components/PaginationControlled"
 
 function App() {
   const [leagues, setLeagues] = useState([])
@@ -34,7 +33,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <PaginationControlled />
       <Box padding="1rem">
         <SearchField />
         <Routing leagues={leagues} teams={teams} />
