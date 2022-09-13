@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import SearchField from "./components/SearchField"
 import Routing from "./components/Routing"
 import { getLeagues, getTeams } from "./api/fetch"
+import PaginationControlled from "./components/PaginationControlled"
 
 function App() {
   const [leagues, setLeagues] = useState([])
@@ -13,7 +14,6 @@ function App() {
   useEffect(() => {
     const fetchDataLeagues = async () => {
       const jsonLeagues = await getLeagues()
-
       if (!jsonLeagues) return
       console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", jsonLeagues)
       setLeagues(jsonLeagues.competitions)
@@ -24,7 +24,6 @@ function App() {
   useEffect(() => {
     const fetchDataTeams = async () => {
       const jsonTeams = await getTeams()
-
       if (!jsonTeams) return
       console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", jsonTeams)
       setTeams(jsonTeams.teams)
@@ -35,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <PaginationControlled />
       <Box padding="1rem">
         <SearchField />
         <Routing leagues={leagues} teams={teams} />

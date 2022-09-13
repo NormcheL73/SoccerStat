@@ -1,18 +1,23 @@
 import { Search } from "@mui/icons-material"
-import { InputAdornment, TextField } from "@mui/material"
+import { IconButton, TextField } from "@mui/material"
+// import { useState } from "react"
 
 function SearchField() {
+  // const [searchQuery, setSearchQuery] = useState("")
+
   return (
     <TextField
       type="search"
       label="Поиск..."
       variant="outlined"
+      // value={searchQuery}
+      // onChange={(e) => setSearchQuery(e.target.value)}
       sx={{ mb: "1.5rem", width: 300 }}
       InputProps={{
         endAdornment: (
-          <InputAdornment position="end">
+          <IconButton type="sumbit" aria-label="search">
             <Search />
-          </InputAdornment>
+          </IconButton>
         )
       }}
     />
