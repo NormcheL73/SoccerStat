@@ -1,17 +1,17 @@
 import { Search } from "@mui/icons-material"
 import { IconButton, TextField } from "@mui/material"
-// import { useState } from "react"
+import { useState } from "react"
 
-function SearchField() {
-  // const [searchQuery, setSearchQuery] = useState("")
+function SearchFieldLeagues() {
+  const [searchQuery, setSearchQuery] = useState("")
 
   return (
     <TextField
       type="search"
-      label="Поиск..."
+      label="Поиск лиги..."
       variant="outlined"
-      // value={searchQuery}
-      // onChange={(e) => setSearchQuery(e.target.value)}
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
       sx={{ mb: "1.5rem", width: 300 }}
       InputProps={{
         endAdornment: (
@@ -24,4 +24,4 @@ function SearchField() {
   )
 }
 
-export default SearchField
+export default SearchFieldLeagues

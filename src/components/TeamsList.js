@@ -1,14 +1,15 @@
 import { Grid } from "@mui/material"
-import TeamCardsItem from "../components/TeamCardsItem"
+import TeamCardsItem from "./TeamCardsItem"
 
-function Teams({ teams }) {
-  if (!teams.length) return null
+function TeamsList({ paginatedTeams }) {
+  if (!paginatedTeams.length) return null
 
   return (
     <Grid container spacing={4} justifyContent="center">
-      {teams.map((team) => (
+      {paginatedTeams.map((team) => (
         <TeamCardsItem
           key={team.id}
+          teamId={team.id}
           name={team.name}
           teamFlag={team.crestUrl}
         />
@@ -17,4 +18,4 @@ function Teams({ teams }) {
   )
 }
 
-export default Teams
+export default TeamsList

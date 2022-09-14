@@ -32,6 +32,7 @@
     "react/jsx-uses-react": ["off"],
     "react/react-in-jsx-scope": ["off"],
     "react/jsx-props-no-spreading": ["warn"],
-    "no-console": ["off"]
+    "no-console": ["off"],
+    "no-else-return": ["off"]
   }
 }
