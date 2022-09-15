@@ -32,19 +32,19 @@ function Routing() {
     fetchDataLeagues()
   }, [])
 
+  const routesLeagueMatches = leagues.map((league) => (
+    <Route
+      path={`/leagues/${league.id}/matches`}
+      element={<LeagueMatches league={league} />}
+      key={league.id}
+    />
+  ))
+
   const routesTeamMatches = teams.map((team) => (
     <Route
       path={`/teams/${team.id}/matches`}
       element={<TeamMatches name={team.name} />}
       key={team.id}
-    />
-  ))
-
-  const routesLeagueMatches = leagues.map((league) => (
-    <Route
-      path={`/leagues/${league.id}/matches`}
-      element={<LeagueMatches name={league.name} />}
-      key={league.id}
     />
   ))
 

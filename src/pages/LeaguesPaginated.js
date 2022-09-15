@@ -1,20 +1,25 @@
 /* eslint-disable no-else-return */
-import { Search } from "@mui/icons-material"
-import { InputAdornment, TextField, Typography } from "@mui/material"
+import { Typography } from "@mui/material"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 import { useState } from "react"
 import LeaguesList from "../components/LeaguesList"
+import SearchField from "../components/SearchField"
 import filterData from "../utils/filterData"
 
 function LeaguesPaginated({ leagues }) {
-  const [testq, setTestq] = useState("")
+  const [query, setQuery] = useState("")
   const [page, setPage] = useState(1)
+
   const handleChange = (event, value) => {
     setPage(value)
   }
 
-  const dataFiltered = filterData(testq, leagues)
+  const updateQuery = (newQuery) => {
+    setQuery(newQuery)
+  }
+
+  const dataFiltered = filterData(query, leagues)
   const contentPerPage = 12
   const lastIndex = page * contentPerPage
   const firstIndex = lastIndex - contentPerPage
@@ -24,21 +29,7 @@ function LeaguesPaginated({ leagues }) {
 
   return (
     <>
-      <TextField
-        type="search"
-        label="Поиск лиги..."
-        variant="outlined"
-        value={testq}
-        onChange={(e) => setTestq(e.target.value)}
-        sx={{ mb: "1.5rem", width: 300 }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment>
-              <Search />
-            </InputAdornment>
-          )
-        }}
-      />
+      <SearchField query={query} updateQuery={updateQuery} />
       <Stack
         spacing={2}
         alignItems="center"
