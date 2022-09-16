@@ -33,3 +33,25 @@ export const getTeams = async () => {
     return null
   }
 }
+
+export const getMathcesByLeague = async (
+  leagueId,
+  queryDateFrom,
+  queryDateTo
+) => {
+  const response = await fetch(
+    `https://api.football-data.org/v2/competitions/${leagueId}/matches?dateFrom=${queryDateFrom}&dateTo=${queryDateTo}`,
+    {
+      headers: {
+        "x-auth-token": process.env.REACT_APP_API_KEY
+      }
+    }
+  )
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  } else {
+    console.error("Что-то не так")
+    return null
+  }
+}

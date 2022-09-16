@@ -1,46 +1,67 @@
 import { Breadcrumbs, Typography } from "@mui/material"
-import { useState } from "react"
+import { Box } from "@mui/system"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import fixDateNumber from "../utils/fixDateNumber"
+import getMathcesByLeagueCheck from "../utils/getMathcesByLeagueCheck"
+import DataGridLeagueMatches from "./DataGridLeagueMatches"
 import DateMatchesPicker from "./DateMatchesPicker"
 
 function LeagueMatches({ league }) {
   const [dateFrom, setDateFrom] = useState(null)
   const [dateTo, setDateTo] = useState(null)
+  const [leagueMatches, setLeagueMatches] = useState([])
+  const [dateFromString, setDateFromString] = useState("")
+  const [dateToString, setDateToString] = useState("")
 
-  let dateFromString
-  let dateToString
+  useEffect(() => {
+    const fetchDataLeagueMatches = async () => {
+      const jsonLeagueMatches = await getMathcesByLeagueCheck(
+        dateFromString,
+        dateToString,
+        league.id
+      )
+      if (!jsonLeagueMatches) return
+      console.log(
+        "🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json",
+        jsonLeagueMatches
+      )
+      setLeagueMatches(jsonLeagueMatches.matches)
+    }
+    fetchDataLeagueMatches()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dateFromString, dateToString])
 
   const updateDateFrom = (newDate) => {
     setDateFrom(newDate)
 
     if (newDate !== null) {
-      dateFromString = `${newDate.$y}-${fixDateNumber(
-        newDate.$M + 1
-      )}-${fixDateNumber(newDate.$D)}`
+      setDateFromString(
+        `${newDate.$y}-${fixDateNumber(newDate.$M + 1)}-${fixDateNumber(
+          newDate.$D
+        )}`
+      )
     }
-    console.log(
-      "🚀 ~ file: LeagueMatches.js ~ line 14 ~ updateDateFrom ~ dateFromString",
-      typeof dateFromString
-    )
   }
 
   const updateDateTo = (newDate) => {
     setDateTo(newDate)
 
     if (newDate !== null) {
-      dateToString = `${newDate.$y}-${fixDateNumber(
-        newDate.$M + 1
-      )}-${fixDateNumber(newDate.$D)}`
-      console.log(
-        "🚀 ~ file: LeagueMatches.js ~ line 34 ~ updateDateTo ~ dateToString",
-        dateToString
+      setDateToString(
+        `${newDate.$y}-${fixDateNumber(newDate.$M + 1)}-${fixDateNumber(
+          newDate.$D
+        )}`
       )
     }
   }
 
+  const updateLeagueMatches = (newLeagueMatches) => {
+    setLeagueMatches(newLeagueMatches)
+  }
+
   return (
-    <>
+    <Box sx={{ height: "70vh" }}>
       <Breadcrumbs separator=">" aria-label="bredcrumb">
         <Link to="/SoccerStat">
           <Typography variant="h6">Лиги</Typography>
@@ -62,7 +83,11 @@ function LeagueMatches({ league }) {
         updateDate={updateDateTo}
         minDate={dateFrom}
       />
-    </>
+      <DataGridLeagueMatches
+        matches={leagueMatches}
+        updateMatches={updateLeagueMatches}
+      />
+    </Box>
   )
 }
 
