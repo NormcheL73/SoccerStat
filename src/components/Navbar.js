@@ -1,4 +1,5 @@
-import { AppBar, Tab, Tabs } from "@mui/material"
+import { SportsSoccer } from "@mui/icons-material"
+import { AppBar, Tab, Tabs, Toolbar } from "@mui/material"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -9,17 +10,20 @@ function Navbar() {
   }
 
   return (
-    <AppBar position="static">
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        textColor="inherit"
-        TabIndicatorProps={{ sx: { bgcolor: "white" } }}
-        sx={{ ml: "1rem" }} // подогнать
-      >
-        <Tab label="Лиги" to="/SoccerStat" component={Link} />
-        <Tab label="Команды" to="/teams" component={Link} />
-      </Tabs>
+    <AppBar position="static" sx={{ height: 56 }}>
+      <Toolbar>
+        <SportsSoccer fontSize="large" />
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          textColor="inherit"
+          TabIndicatorProps={{ sx: { bgcolor: "white" } }}
+          sx={{ ml: "1rem" }}
+        >
+          <Tab label="Лиги" to="/SoccerStat" component={Link} />
+          <Tab label="Команды" to="/teams" component={Link} />
+        </Tabs>
+      </Toolbar>
     </AppBar>
   )
 }
