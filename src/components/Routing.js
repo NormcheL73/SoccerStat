@@ -16,7 +16,6 @@ function Routing() {
     const fetchDataTeams = async () => {
       const jsonTeams = await getTeams()
       if (!jsonTeams) return
-      console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", jsonTeams)
       setTeams(jsonTeams.teams)
     }
     fetchDataTeams()
@@ -26,7 +25,6 @@ function Routing() {
     const fetchDataLeagues = async () => {
       const jsonLeagues = await getLeagues()
       if (!jsonLeagues) return
-      console.log("🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json", jsonLeagues)
       setLeagues(jsonLeagues.competitions)
     }
     fetchDataLeagues()

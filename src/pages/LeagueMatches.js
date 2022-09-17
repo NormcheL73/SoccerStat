@@ -22,10 +22,6 @@ function LeagueMatches({ league }) {
         league.id
       )
       if (!jsonLeagueMatches) return
-      console.log(
-        "🚀 ~ file: App.js ~ line 17 ~ fetchData ~ json",
-        jsonLeagueMatches
-      )
       setLeagueMatches(jsonLeagueMatches.matches)
     }
     fetchDataLeagueMatches()

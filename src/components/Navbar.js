@@ -8,7 +8,6 @@ function Navbar() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
-    console.log(value)
   }
 
   const handleClick = () => {
