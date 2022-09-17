@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import Error404 from "./Error404"
 import LeaguesPaginated from "../pages/LeaguesPaginated"
-import TeamMatches from "./TeamMatches"
+import TeamMatches from "../pages/TeamMatches"
 import { getLeagues, getTeams } from "../api/fetch"
 import Loading from "./Loading"
-import LeagueMatches from "./LeagueMatches"
+import LeagueMatches from "../pages/LeagueMatches"
 import TeamsPaginated from "../pages/TeamsPaginated"
 
 function Routing() {
@@ -43,7 +43,7 @@ function Routing() {
   const routesTeamMatches = teams.map((team) => (
     <Route
       path={`/teams/${team.id}/matches`}
-      element={<TeamMatches name={team.name} />}
+      element={<TeamMatches team={team} />}
       key={team.id}
     />
   ))

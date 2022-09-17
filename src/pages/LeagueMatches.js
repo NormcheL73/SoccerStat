@@ -4,8 +4,8 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import fixDateNumber from "../utils/fixDateNumber"
 import getMathcesByLeagueCheck from "../utils/getMathcesByLeagueCheck"
-import DataGridLeagueMatches from "./DataGridLeagueMatches"
-import DateMatchesPicker from "./DateMatchesPicker"
+import DataGridMatches from "../components/DataGridMatches"
+import DateMatchesPicker from "../components/DateMatchesPicker"
 
 function LeagueMatches({ league }) {
   const [dateFrom, setDateFrom] = useState(null)
@@ -83,7 +83,7 @@ function LeagueMatches({ league }) {
         updateDate={updateDateTo}
         minDate={dateFrom}
       />
-      <DataGridLeagueMatches
+      <DataGridMatches
         matches={leagueMatches}
         updateMatches={updateLeagueMatches}
       />

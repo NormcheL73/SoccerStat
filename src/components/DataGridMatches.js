@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid"
 import checkScore from "../utils/checkScore"
 import dictionaryStatus from "../utils/dictionaryStatus"
 
-function DataGridLeagueMatches({ matches, updateMatches }) {
+function DataGridMatches({ matches, updateMatches }) {
   if (!matches.length)
     return (
       <Typography variant="body1" sx={{ mt: "1rem" }}>
@@ -82,4 +82,4 @@ function DataGridLeagueMatches({ matches, updateMatches }) {
   )
 }
 
-export default DataGridLeagueMatches
+export default DataGridMatches
