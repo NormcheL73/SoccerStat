@@ -34,7 +34,7 @@ export const getTeams = async () => {
   }
 }
 
-export const getMathcesByLeague = async (
+export const getMatchesByLeague = async (
   leagueId,
   queryDateFrom,
   queryDateTo
@@ -56,7 +56,7 @@ export const getMathcesByLeague = async (
   }
 }
 
-export const getMathcesByTeam = async (teamId, queryDateFrom, queryDateTo) => {
+export const getMatchesByTeam = async (teamId, queryDateFrom, queryDateTo) => {
   const response = await fetch(
     `https://api.football-data.org/v2/teams/${teamId}/matches?dateFrom=${queryDateFrom}&dateTo=${queryDateTo}`,
     {

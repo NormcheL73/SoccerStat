@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import DateMatchesPicker from "../components/DateMatchesPicker"
 import fixDateNumber from "../utils/fixDateNumber"
 import DataGridMatches from "../components/DataGridMatches"
-import getMathcesByTeamCheck from "../utils/getMathcesByTeamCheck"
+import getMathcesByTeamCheck from "../utils/getMatchesByTeamCheck"
 
 function TeamMatches({ team }) {
   const [dateFrom, setDateFrom] = useState(null)

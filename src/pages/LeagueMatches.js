@@ -3,7 +3,7 @@ import { Box } from "@mui/system"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import fixDateNumber from "../utils/fixDateNumber"
-import getMathcesByLeagueCheck from "../utils/getMathcesByLeagueCheck"
+import getMatchesByLeagueCheck from "../utils/getMatchesByLeagueCheck"
 import DataGridMatches from "../components/DataGridMatches"
 import DateMatchesPicker from "../components/DateMatchesPicker"
 
@@ -16,7 +16,7 @@ function LeagueMatches({ league }) {
 
   useEffect(() => {
     const fetchDataLeagueMatches = async () => {
-      const jsonLeagueMatches = await getMathcesByLeagueCheck(
+      const jsonLeagueMatches = await getMatchesByLeagueCheck(
         dateFromString,
         dateToString,
         league.id
@@ -58,7 +58,7 @@ function LeagueMatches({ league }) {
 
   return (
     <Box sx={{ height: "70vh" }}>
-      <Breadcrumbs separator=">" aria-label="bredcrumb">
+      <Breadcrumbs separator=">" aria-label="breadcrumb">
         <Link to="/SoccerStat">
           <Typography variant="h6">Лиги</Typography>
         </Link>
